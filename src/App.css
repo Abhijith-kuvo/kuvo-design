@@ -24,7 +24,7 @@
   color: #0f1724;
 }
 
-/* New nav and page styles */
+/* Nav and page styles */
 .site-nav {
   display: flex;
   align-items: center;
@@ -33,27 +33,34 @@
   background: linear-gradient(90deg, #ffffff, #f1f5f9);
   color: #0f1724;
   border-bottom: 1px solid rgba(15,23,36,0.06);
+  position: relative;
+  z-index: 1000;
 }
+
 .nav-left {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
 .nav-logo {
   width: 56px;
   height: 56px;
   object-fit: contain;
   display: block;
 }
+
 .brand {
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 0.6px;
 }
+
 .nav-right {
   display: flex;
   gap: 8px;
 }
+
 .nav-button {
   background: transparent;
   border: 1px solid rgba(15,23,36,0.06);
@@ -63,10 +70,12 @@
   cursor: pointer;
   transition: transform 120ms ease, background 120ms ease;
 }
+
 .nav-button:hover {
   transform: translateY(-2px);
   background: rgba(15,23,36,0.03);
 }
+
 .nav-button.active {
   background: linear-gradient(90deg,#e6f0ff,#dbeafe);
   color: #0f1724;
@@ -88,7 +97,11 @@
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(15,23,36,0.06);
 }
-.page h1 { margin-top: 0; }
+
+.page h1 {
+  margin-top: 0;
+}
+
 .about-title {
   display: flex;
   align-items: center;
@@ -97,6 +110,7 @@
   justify-content: center;
   text-align: center;
 }
+
 .about-logo {
   width: 42px;
   height: 42px;
@@ -114,6 +128,7 @@
     height: 32px;
   }
 }
+
 .maintenance-note {
   margin-top: 12px;
   padding: 12px;
@@ -124,6 +139,73 @@
 
 .App-link {
   color: #61dafb;
+}
+
+/* Hamburger menu button (hidden desktop) */
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Hamburger icon bars */
+.menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #0f1724;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animate hamburger into X when open */
+.menu-icon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Responsive menu for mobile */
+@media (max-width: 768px) {
+  .nav-right {
+    display: none;
+    flex-direction: column;
+    background-color: #ffffff;
+    position: absolute;
+    top: 72px; /* height of nav */
+    right: 20px;
+    box-shadow: 0 8px 16px rgba(15, 23, 36, 0.12);
+    border-radius: 12px;
+    width: 160px;
+  }
+
+  .nav-right.nav-open {
+    display: flex;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav-button {
+    padding: 12px 15px;
+    text-align: right;
+    border-bottom: 1px solid rgba(15,23,36,0.06);
+    border-radius: 0;
+  }
+
+  .nav-button:last-child {
+    border-bottom: none;
+  }
 }
 
 @keyframes App-logo-spin {

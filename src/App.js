@@ -17,6 +17,11 @@ const components = {
 
 function App() {
   const [active, setActive] = useState('Home');
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
     <div className="App">
@@ -25,12 +30,23 @@ function App() {
           <img src={logo} alt="Kuvo" className="nav-logo" />
         </div>
 
-        <div className="nav-right">
+        <button className="menu-button" onClick={toggleMenu} aria-label="Toggle menu">
+          <div className={`menu-icon${menuOpen ? ' open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+
+        <div className={`nav-right${menuOpen ? ' nav-open' : ''}`}>
           {Object.keys(components).map((key) => (
             <button
               key={key}
               className={"nav-button" + (active === key ? ' active' : '')}
-              onClick={() => setActive(key)}
+              onClick={() => {
+                setActive(key);
+                setMenuOpen(false);
+              }}
             >
               {key}
             </button>
