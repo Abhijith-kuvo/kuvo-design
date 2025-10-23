@@ -14,14 +14,112 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #f7fafc;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #0f1724;
+}
+
+/* New nav and page styles */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #ffffff, #f1f5f9);
+  color: #0f1724;
+  border-bottom: 1px solid rgba(15,23,36,0.06);
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+}
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.6px;
+}
+.nav-right {
+  display: flex;
+  gap: 8px;
+}
+.nav-button {
+  background: transparent;
+  border: 1px solid rgba(15,23,36,0.06);
+  color: #0f1724;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease;
+}
+.nav-button:hover {
+  transform: translateY(-2px);
+  background: rgba(15,23,36,0.03);
+}
+.nav-button.active {
+  background: linear-gradient(90deg,#e6f0ff,#dbeafe);
+  color: #0f1724;
+  border: 1px solid rgba(99,102,241,0.12);
+}
+
+.site-main {
+  padding: 36px 20px;
+  min-height: calc(100vh - 72px);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  color: #0f1724;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(15,23,36,0.06);
+}
+.page h1 { margin-top: 0; }
+.about-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6rem;
+  justify-content: center;
+  text-align: center;
+}
+.about-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+@media (max-width: 520px) {
+  .about-title {
+    gap: 8px;
+    font-size: 1.25rem;
+  }
+  .about-logo {
+    width: 32px;
+    height: 32px;
+  }
+}
+.maintenance-note {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(250, 204, 21, 0.08);
+  color: #8a6b00;
+  border-left: 4px solid rgba(250,204,21,0.22);
 }
 
 .App-link {
